@@ -1,17 +1,22 @@
 // back logic
-var printedArray = [];
+var numberCount = [];
 var startCount = 0;
-var counterLoop = function(numberInput) {
+
+var counterLoop = function(numberInput) { // function that loops through numbers and adds them to the array
   for(i = 0; i <= numberInput; i++) {
     if(startCount < numberInput) {
       console.log("This is the number input " + numberInput);
       console.log("This is starting the loop");
-      console.log(printedArray + " = array contents");
+      console.log(numberCount + " = array contents");
       startCount = startCount + 1;
-      printedArray.push(startCount);
+      numberCount.push(startCount);
     } 
   }
 }
+
+var printContent = numberCount.forEach(function(number) {
+  $("#numberOutput").append(number + "<br>");
+});
 
 
 
@@ -38,9 +43,10 @@ $(document).ready(function() {
     var countOutput = counterLoop(numInput)
     console.log(userInput);
     console.log(numInput);
-    console.log(printedArray);
+    console.log(numberCount);
     countOutput;
-    $("#array-output").text(printedArray);
+    printContent;
+    //$("#array-output").text(numberCount);
     
   });
 
@@ -49,7 +55,7 @@ $(document).ready(function() {
     event.preventDefault();
     $(".output").hide();
     $(".robot-input").show();
-    printedArray = [];
+    numberCount = [];
     startCount = 0;
   });
   
