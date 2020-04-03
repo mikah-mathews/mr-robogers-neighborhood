@@ -2,21 +2,47 @@
 var numberCount = [];
 var startCount = 0;
 
+function check3(number) {
+  return number == 3
+}
+
+function check2(number) {
+  return number == 2
+}
+
+function check1(number) {
+  return number == 1
+}
+
+
+var numCheckLogic = function(number) {
+  if(number == 3) {
+    console.log("This is 3");
+    return "Won't you be my neighbor?";
+  } else if(number == 2) {
+    console.log("This is 2");
+    return "Boop";
+  } else if(number == 1){
+    console.log("This is 1");
+    return "Beep";
+  } else {
+    console.log("This is not 1, 2, or 3");
+  }
+  
+}
+
 var counterLoop = function(numberInput) { // function that loops through numbers and adds them to the array
-  for(i = 0; i <= numberInput; i++) {
+  for (i = 0; i <= numberInput; i++) {
     if(startCount < numberInput) {
       numberCount.push(startCount);
       startCount = startCount + 1;
+      startCountString = startCount.toString();
+      console.log(startCount);
       $("#numberOutput").append(startCount + "<br>");
+      
     } 
   }
 }
-
-// var printContent = numberCount.forEach(function(number) {
-//   $("#numberOutput").append(number + "<br>");
-// });
-
-
 
 
 
@@ -50,7 +76,7 @@ $(document).ready(function() {
     event.preventDefault();
     $(".output").hide();
     $(".robot-input").show();
-    $('#numberOutput').empty();
+    $('#numberOutput').empty(); //Clears previous number list
     numberCount = [];
     startCount = 0;
   });
