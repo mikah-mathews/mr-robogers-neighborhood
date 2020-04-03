@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+body {
+  background-color: hotpink;
+  font-family: 'Press Start 2P';
+  text-align: center;
+}
+
+.robot-start {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  margin-top: 25px;
+}
+
+#startButton {
+  margin-top: 30px;
+}
+
+.robot-input {
+  display: none;
+}
+
+#user-input {
+  background-color: pink;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  margin-top: 25px;
+}
+
+.output {
+  display: none;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  background-color: lightpink;
+}
