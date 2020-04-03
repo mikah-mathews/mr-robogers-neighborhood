@@ -5,18 +5,16 @@ var startCount = 0;
 var counterLoop = function(numberInput) { // function that loops through numbers and adds them to the array
   for(i = 0; i <= numberInput; i++) {
     if(startCount < numberInput) {
-      console.log("This is the number input " + numberInput);
-      console.log("This is starting the loop");
-      console.log(numberCount + " = array contents");
-      startCount = startCount + 1;
       numberCount.push(startCount);
+      startCount = startCount + 1;
+      $("#numberOutput").append(startCount + "<br>");
     } 
   }
 }
 
-var printContent = numberCount.forEach(function(number) {
-  $("#numberOutput").append(number + "<br>");
-});
+// var printContent = numberCount.forEach(function(number) {
+//   $("#numberOutput").append(number + "<br>");
+// });
 
 
 
@@ -41,12 +39,9 @@ $(document).ready(function() {
     var userInput = $("#number").val();
     var numInput = parseInt(userInput);
     var countOutput = counterLoop(numInput)
-    console.log(userInput);
-    console.log(numInput);
     console.log(numberCount);
     countOutput;
-    printContent;
-    //$("#array-output").text(numberCount);
+    //printContent;
     
   });
 
@@ -55,6 +50,7 @@ $(document).ready(function() {
     event.preventDefault();
     $(".output").hide();
     $(".robot-input").show();
+    $('#numberOutput').empty();
     numberCount = [];
     startCount = 0;
   });
