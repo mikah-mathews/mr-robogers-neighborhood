@@ -48,7 +48,7 @@ Spec: 2 will be replaced with "Boop"
 
 Spec: 3 will be replaced with "Won't you be my neighbor?"
 * Input: 4
- > Output: "0", "Beep", "Boop", "Won't you be my neighbor?", "4"
+  > Output: "0", "Beep", "Boop", "Won't you be my neighbor?", "4"
 
 Spec: 3 protocol will override both 2 and 1, 2 protocol will override 1, 1 will not override anything
 * Input: 19
