@@ -1,30 +1,44 @@
 // back logic
 var numberCount = [];
 var startCount = 0;
+var startCountString = startCount.toString();
+var findNumberArray = [];
 
-function check3(number) {
-  return number == 3
+var numberSplitVar = function(number) {
+  for (var i = 0, len = number.length; i < len; i += 1) {
+    findNumberArray.push(number.charAt(i));
+  }
 }
 
-function check2(number) {
-  return number == 2
-}
-
-function check1(number) {
-  return number == 1
-}
-
+// var numberFinder = function(number){
+//   numberSplitVar(number);
+//   if ($.inArray("3", number)) {
+//     console.log("there is a 3");
+//     return 3;
+//   } else if ($.inArray("2", number)) {
+//     console.log("there is a 2");
+//     return 2;
+//   } else if ($.inArray("1", number)) {
+//     console.log("there is a 1");
+//     return 1;
+//   } else {
+//     console.log("There is allegedly not a 1, 2, or 3");
+//   }
+// }
 
 var numCheckLogic = function(number) {
-  if(number == 3) {
-    console.log("This is 3");
-    return "Won't you be my neighbor?";
-  } else if(number == 2) {
+  if(numberFinder(number) == 3) {
+    console.log("This is 3 in check Logic");
+    $("#numberOutput").append("Won't you be my neighbor?" + "<br>");
+   
+  } else if(numberFinder(number) == 2) {
     console.log("This is 2");
-    return "Boop";
-  } else if(number == 1){
+    $("#numberOutput").append("Boop" + "<br>");
+    
+  } else if(numberFinder(number) == 1){
     console.log("This is 1");
-    return "Beep";
+    $("#numberOutput").append("Beep" + "<br>");
+    
   } else {
     console.log("This is not 1, 2, or 3");
   }
@@ -36,10 +50,13 @@ var counterLoop = function(numberInput) { // function that loops through numbers
     if(startCount < numberInput) {
       numberCount.push(startCount);
       startCount = startCount + 1;
-      startCountString = startCount.toString();
+      startCountString; // sets number to string
       console.log(startCount);
+      numberSplitVar(startCount);
+      console.log(numberSplitVar);
+      //numberFinder(startCount);
+      //numCheckLogic(startCount);
       $("#numberOutput").append(startCount + "<br>");
-      
     } 
   }
 }
