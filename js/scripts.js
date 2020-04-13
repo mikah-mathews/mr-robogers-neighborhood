@@ -4,29 +4,6 @@ var startCount = 0;
 var startCountString = startCount.toString();
 var findNumberArray = [];
 
-var numberSplitVar = function(number) {
-  for (var i = 0, len = number.length; i < len; i += 1) {
-    findNumberArray.push(number.charAt(i));
-    console.log(findNumberArray);
-  }
-}
-
-// var numberFinder = function(number){
-//   numberSplitVar(number);
-//   if ($.inArray("3", number)) {
-//     console.log("there is a 3");
-//     return 3;
-//   } else if ($.inArray("2", number)) {
-//     console.log("there is a 2");
-//     return 2;
-//   } else if ($.inArray("1", number)) {
-//     console.log("there is a 1");
-//     return 1;
-//   } else {
-//     console.log("There is allegedly not a 1, 2, or 3");
-//   }
-// }
-
 var numCheckLogic = function() {
   var numberToCheck = startCount;
   if([numberToCheck].includes(3)) {
