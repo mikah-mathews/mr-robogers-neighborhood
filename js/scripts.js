@@ -7,6 +7,7 @@ var findNumberArray = [];
 var numberSplitVar = function(number) {
   for (var i = 0, len = number.length; i < len; i += 1) {
     findNumberArray.push(number.charAt(i));
+    console.log(findNumberArray);
   }
 }
 
@@ -26,21 +27,19 @@ var numberSplitVar = function(number) {
 //   }
 // }
 
-var numCheckLogic = function(number) {
-  if(numberFinder(number) == 3) {
-    console.log("This is 3 in check Logic");
+var numCheckLogic = function() {
+  var numberToCheck = startCount;
+  if([numberToCheck].includes(3)) {
     $("#numberOutput").append("Won't you be my neighbor?" + "<br>");
-   
-  } else if(numberFinder(number) == 2) {
-    console.log("This is 2");
+  } else if([numberToCheck].includes(2)) {
     $("#numberOutput").append("Boop" + "<br>");
     
-  } else if(numberFinder(number) == 1){
-    console.log("This is 1");
+  } else if([numberToCheck].includes(1)){
     $("#numberOutput").append("Beep" + "<br>");
     
   } else {
     console.log("This is not 1, 2, or 3");
+    $("#numberOutput").append(startCount + "<br>");
   }
   
 }
@@ -50,13 +49,9 @@ var counterLoop = function(numberInput) { // function that loops through numbers
     if(startCount < numberInput) {
       numberCount.push(startCount);
       startCount = startCount + 1;
+      numCheckLogic();
       startCountString; // sets number to string
-      console.log(startCount);
-      numberSplitVar(startCount);
-      console.log(numberSplitVar);
-      //numberFinder(startCount);
-      //numCheckLogic(startCount);
-      $("#numberOutput").append(startCount + "<br>");
+      // numberSplitVar(startCount);
     } 
   }
 }
@@ -81,9 +76,9 @@ $(document).ready(function() {
     $(".output").show();
     var userInput = $("#number").val();
     var numInput = parseInt(userInput);
-    var countOutput = counterLoop(numInput)
-    console.log(numberCount);
+    var countOutput = counterLoop(numInput);
     countOutput;
+
     //printContent;
     
   });
