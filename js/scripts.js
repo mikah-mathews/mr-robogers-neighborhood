@@ -2,20 +2,25 @@
 var numberCount = [];
 var startCount = 0;
 var startCountString = startCount.toString();
-var findNumberArray = [];
+
+let strToInt = function(userInput) {
+  return parseInt(userInput);
+}
+
+let intToStr = function(userInput) {
+  return userInput.toString();
+}
 
 var numCheckLogic = function() {
-  var numberToCheck = startCount;
-  if([numberToCheck].includes(3)) {
+  let numberToCheck = startCount;
+  let strNum = intToStr(numberToCheck);
+  if((strNum).includes('3')) {
     $("#numberOutput").append("Won't you be my neighbor?" + "<br>");
-  } else if([numberToCheck].includes(2)) {
+  } else if((strNum).includes('2')) {
     $("#numberOutput").append("Boop" + "<br>");
-    
-  } else if([numberToCheck].includes(1)){
+  } else if((strNum).includes('1')){
     $("#numberOutput").append("Beep" + "<br>");
-    
   } else {
-    console.log("This is not 1, 2, or 3");
     $("#numberOutput").append(startCount + "<br>");
   }
   
@@ -28,7 +33,6 @@ var counterLoop = function(numberInput) { // function that loops through numbers
       startCount = startCount + 1;
       numCheckLogic();
       startCountString; // sets number to string
-      // numberSplitVar(startCount);
     } 
   }
 }
@@ -37,8 +41,6 @@ var counterLoop = function(numberInput) { // function that loops through numbers
 
 //front end logic
 $(document).ready(function() {
-// Variable placement is important - wasn't working until variables were placed inside submit function
-
   // when start button is pressed, show input form
   $("#startButton").click(function() {
     event.preventDefault();
@@ -52,12 +54,7 @@ $(document).ready(function() {
     $(".robot-input").hide();
     $(".output").show();
     var userInput = $("#number").val();
-    var numInput = parseInt(userInput);
-    var countOutput = counterLoop(numInput);
-    countOutput;
-
-    //printContent;
-    
+    counterLoop(userInput);    
   });
 
   // When restart button is pressed, switch to input form again
@@ -65,7 +62,7 @@ $(document).ready(function() {
     event.preventDefault();
     $(".output").hide();
     $(".robot-input").show();
-    $('#numberOutput').empty(); //Clears previous number list
+    $('#numberOutput').empty(); 
     numberCount = [];
     startCount = 0;
   });
